@@ -28,16 +28,11 @@ class TicTacToe {
     }
 
     getCurrentPlayerSymbol() {
-       return this._currentSymbol;   //this._currentSymbol = this._currentSymbol === "x" ? "o" : "x";//return this._currentSymbol;   
+       return this._currentSymbol;      
     }
 
     nextTurn(rowIndex, columnIndex) {
-        //this.arr[rowIndex][columnIndex] = this._currentSymbol; 
-        //this._moves = this._moves + 1;
         if (this.arr[rowIndex][columnIndex] != null){
-            //this._moves = this._moves + 1;
-            //this.arr[rowIndex][columnIndex] = this._currentSymbol;
-       
             return;
         }
         this.arr[rowIndex][columnIndex] = this._currentSymbol;
@@ -49,20 +44,10 @@ class TicTacToe {
         }
         this._moves = this._moves + 1;
         return;
-        //this.columnIndex = columnIndex;
-        //this.rowIndex = rowIndex; 
-        /*if((this.getFieldValue[rowIndex][columnIndex] === 'x') || 
-           (this.getFieldValue[rowIndex][columnIndex] === 'o')) {
-            return;
-            }
-        else {
-            this.arr[rowIndex][columnIndex] = this._currentSymbol;   
-            } */
     }
        
     isFinished() { 
-        
-      if (this.getWinner() == null && this._moves < 9) { 
+        if ((this.getWinner() == null) && (this._moves < 9)) { 
             return false}
         else {
             return true;
@@ -71,7 +56,7 @@ class TicTacToe {
     }
 
     getWinner() { 
-       var winner = null;
+       /*var winner = null;
                // смотрим строчки x
             for (var i = 0; i < this.n; i++) {
                 for (var j = 0; j < this.m; j++) {
@@ -160,13 +145,8 @@ class TicTacToe {
                 } 
             }
      
-        return null;
-      
-      
-
-
-
-  /*      if (this.arr[0][0] == this.arr[0][1] && this.arr[0][1] == this.arr[0][2] && this.arr[0][2] == 'o' ||
+        return null;*/
+        if (this.arr[0][0] == this.arr[0][1] && this.arr[0][1] == this.arr[0][2] && this.arr[0][2] == 'o' ||
             this.arr[1][0] == this.arr[1][1] && this.arr[1][1] == this.arr[1][2] && this.arr[1][2] == 'o' ||
             this.arr[2][0] == this.arr[2][1] && this.arr[2][1] == this.arr[2][2] && this.arr[2][2] == 'o' ||
             this.arr[0][0] == this.arr[1][0] && this.arr[1][0] == this.arr[2][0] && this.arr[2][0] == 'o' ||
@@ -186,12 +166,8 @@ class TicTacToe {
             this.arr[0][2] == this.arr[1][1] && this.arr[1][1] == this.arr[2][0] && this.arr[2][0] == 'x' ){
             this._winer = 'x';
             return this._winer;}
-        else if (this.isDraw){
-            this._winer = null;
-            //return this._winer;
-            }
-        else{
-            return null;}*/
+         else{
+            return null;}
         
     }
 
@@ -203,23 +179,13 @@ class TicTacToe {
             return false;
          }                 
       }
-       /*if ((this._moves >= 9) || (this.getWinner() != null)) {
-            return true;
-         }
-        else {
-            return false;
-         }                 
-       }*/
-           
+                  
     isDraw() { 
-       if(this.isFinished () || !this.getWinner()) {//(this.getWinner() != null)){          //this.isFinished || !this.getWinner) {//(this.noMoreTurns() == true) && (this.getWinner() == null)){ //!isFInished() || getWinner()) {
-            return false;
+        if(this.noMoreTurns() && (this.getWinner() == null)){
+             return true;
         } else {
-            return true;
-        }
-       /*if (this.noMoreTurns() && this._winner) {
             return false;
-        }*/
+        }
     }
 
     getFieldValue(rowIndex, colIndex) {
